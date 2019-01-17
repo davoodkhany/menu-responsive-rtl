@@ -1,0 +1,330 @@
+body{
+    margin: 0;
+    padding: 0;
+    
+
+}
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding:  0 50px;
+    background: #000;
+    width: 100%;
+    box-sizing: border-box;
+}
+header .logo{
+    color:#fff;
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    float: right;
+    font-weight: bold;
+}
+.logo-lg{
+    margin-left: 20px;
+}
+header nav{
+    float: right;
+    
+}
+header nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    /* padding-right: 30px; */
+}
+header nav ul li {
+    list-style: none;
+    position: relative;
+}
+header nav ul li.sub-menu:before {
+content: '\f0d7';
+font-family: fontAwesome !important;
+position: absolute;
+line-height: 50px;
+color: #fff;
+left: 10px;
+}
+header nav ul li.active.sub-menu:before{
+    content: '\f0d8';
+    }
+
+header nav ul li ul {
+position: absolute;
+right: 0;
+background: #2196f3;
+display: none;
+
+}
+
+header nav ul li.active ul {
+    display: block; 
+    }
+header nav ul li ul li {
+    display: block;
+    width: 170px;
+    background: rgb(255, 255, 255);
+    background: #fff;
+box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
+text-align: center;
+}
+header nav ul li ul li a{
+    color: #333;
+   
+}
+header nav ul li ul li a:hover{
+    margin: 0px;
+    text-decoration: underline;
+
+}
+header nav ul li a{
+    height: 53px;
+    line-height: 50px;
+    padding:  0 20px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+   
+}
+header nav ul li a.active
+{
+    color: #fff;
+    background: #2196f3;
+} 
+.menu-toggle{
+    color: #fff;
+    float: right;
+    line-height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+header .menu-toggle:before {
+    content: '\f0c9';
+    font-family: fontAwesome !important;
+
+    line-height: 50px;
+    color: #fff;
+    left: 10px;
+    }
+    header .menu-toggle.active:before {
+        content: '\f00d';
+       
+        }
+.fa{
+    color: #fff;
+    font-size: 30px !important;
+margin-top: 5px;
+}
+@media (max-width:991px){
+    header{
+        padding: 0 20px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+       
+    }
+    .menu-toggle{
+    display:block;
+   
+    }
+    header nav ul li.sub-menu:before {
+        content: '\f053';
+        font-family: fontAwesome !important;
+        position: absolute;
+        line-height: 50px;
+        color: #fff;
+        left: 10px;
+        }
+        header nav ul li.active.sub-menu:before{
+            content: '\f107';
+            }
+    header nav{
+        /* display: none; */
+        position: absolute;
+       width: 100%;
+       height: calc(100vh-50px);
+       background: #333;
+       top: 50px;
+       right:-100%;
+       transition: 0.5s;
+       /* text-align: center; */
+    }
+    
+    header nav.active{
+    
+        left: 0;
+    }
+    header nav ul{
+        display: block;
+        text-align: center;
+    }
+    
+    header nav ul li a {
+        border-bottom: 1px solid rgba(0,0,0,.2);
+    }
+    .logo-lg{
+        display: none;
+    }
+    header nav ul li.active ul {
+       position: relative; 
+       background: #000;
+
+        }
+        header nav ul li ul li{
+            width: 100%;
+        }
+        header nav ul li.active{
+            background: #e51a2d;
+        }
+        header nav ul li.active a {
+            color: #fff;
+        }
+        header nav ul li ul li{
+            background: #333;
+        }
+        
+}
+@media (min-width:991px){
+     .logo-sm{
+        display: none;
+    }
+}
+
+/*  */
+.container.search-active {
+    overflow: hidden;
+  }
+  .container.search-active .search-input {
+    opacity: 1;
+    transform: none;
+    pointer-events: all;
+  }
+  .container.search-active .icon-close {
+    opacity: 1;
+    /* transform: rotate(-90deg); */
+  }
+  .container.search-active .control {
+    cursor: default;
+  }
+  .container.search-active .control .btn-material {
+    transform: scale(70);
+  }
+  .container.search-active .control .icon-material-search {
+    opacity: 0;
+  }
+  
+  /* Close Icon */
+  .icon-close {
+    position: fixed;
+    top: 10px;
+    left: 0;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 70px;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  .icon-close:hover {
+    transform: rotate(0);
+  }
+  
+  /* Search Input */
+  .search-input {
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -40px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(40px, 0);
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+  }
+  .search-input input {
+    color: #fff;
+    font-size: 20px;
+    border: 0;
+    background: #000;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    outline: 0;
+    font-weight: 200;
+    margin-top: 30px;
+    width: 100%;
+  }
+  .search-input ::-webkit-input-placeholder {
+    color: #EEE;
+  }
+  .search-input :-moz-placeholder {
+    color: #EEE;
+    opacity: 1;
+  }
+  .search-input ::-moz-placeholder {
+    color: #EEE;
+    opacity: 1;
+  }
+  .search-input :-ms-input-placeholder {
+    color: #EEE;
+  }
+  
+  /* Container */
+  .container {
+    /* margin-right: 50px;
+    margin-left: 50px; */
+    position: relative;
+  }
+  .container.container-dark {
+    background: rgb(0, 0, 0);
+    color: #FFF;
+  }
+  
+  /* Control btn */
+  .control {
+    cursor: pointer;
+  }
+  .control .btn-material {
+    position: absolute;
+    top: -30px;
+    width: 60px;
+    height: 60px;
+    right: 60px;
+    border-radius: 100%;
+    box-sizing: border-box;
+    background: #e91e63;
+    outline: 0;
+    transform-origin: 50%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .control .btn-material:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+  .control .icon-material-search {
+    color: #FFF;
+    position: absolute;
+    top: -10px;
+    right: 78px;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Utilities */
+  .p-y-md {
+    padding-top:5px;
+    padding-bottom:5px;
+  }
+  
+  /* Typo */
+
+/*  */
+
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
